@@ -1,6 +1,8 @@
 const http = require('http');
 const fs = require('fs') ; // fs means file system this module helps you to work with the file in the computer
 
+//let us also edit the status code
+// basically status code tell us message eg:- 200 means the req you send to us in response to tht we give you .... , 404 means the req you send we couldnt able to send to the result so we send this default file
 
 
 
@@ -8,18 +10,23 @@ const server = http.createServer((req, res) => {
     console.log('request has been made from browser to server');
 
     res.setHeader('content-Type', 'text/html');
-    //res.write('<h1>hello,user!</h1>');
+
 
     let path ='./htmlfiles';
     switch(req.url){
         case '/':
             path+='/tp_index.html';
+            res.statusCode(200);
             break ;
         case '/alert':
             path+='/about.html';
+            res.statusCode(200);
+
             break ;
         default :
             path+= '/404pg.html';
+            res.statusCode(404);
+
             break;
     }
     fs.readFile(path,(err , filecode)=>{
