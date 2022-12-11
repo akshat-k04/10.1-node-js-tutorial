@@ -16,16 +16,21 @@ const server = http.createServer((req, res) => {
     switch(req.url){
         case '/':
             path+='/tp_index.html';
-            res.statusCode(200);
+            res.statusCode=200;
             break ;
         case '/alert':
             path+='/about.html';
-            res.statusCode(200);
+            res.statusCode=200;
 
             break ;
+        case '/alert-me': // if someone write this relative url then we want to send response to that of /alert this is called that we redirect it  
+            res.statusCode =301; // for re directing we use this
+            res.setHeader('location','/alert');
+            res.end();
+            break;
         default :
             path+= '/404pg.html';
-            res.statusCode(404);
+            res.statusCode=404;
 
             break;
     }
