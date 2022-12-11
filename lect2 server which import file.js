@@ -9,7 +9,20 @@ const server = http.createServer((req, res) => {
 
     res.setHeader('content-Type', 'text/html');
     //res.write('<h1>hello,user!</h1>');
-    fs.readFile('tp_index.html',(err , filecode)=>{
+
+    let path ='./htmlfiles';
+    switch(req.url){
+        case '/':
+            path+='/tp_index.html';
+            break ;
+        case '/alert':
+            path+='/about.html';
+            break ;
+        default :
+            path+= '/404pg.html';
+            break;
+    }
+    fs.readFile(path,(err , filecode)=>{
         if(err){
             console.log(err) ;
         }
