@@ -12,10 +12,13 @@ let user = {
     "surname": "kahndelwal"
 
 };
-//let databas={} ;
-// app.get('/users', (req, res) => {
-//     res.send(user);
-// })
+
+app.get('/users/', (req, res) => {
+    
+    res.json(req.query.id);
+    console.log(req.query.id);
+    
+})
 app.post('/users', (req, res) => {
     console.log(req.body);
     user = req.body;
@@ -44,7 +47,3 @@ app.delete('/users', (req, res) => {
     })
 })
 
-app.get('/users/', (req, res) => {
-    res.send("user name is ");
-    console.log(req.query);
-})

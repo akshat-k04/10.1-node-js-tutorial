@@ -52,5 +52,7 @@ app.delete('/users', (req, res) => {
 
 app.get('/users/:id',(req,res)=>{
     res.send("user name is " ) ;
+    console.log(req.params);
     console.log(req.params.id);
+
 })
