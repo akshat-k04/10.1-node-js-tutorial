@@ -5,7 +5,6 @@ const app = express();
 app.use(express.json());
 app.listen(3000);
 
-let user = {};
 const userRouter = express.Router();
 
 app.use('/auth/signup', userRouter);
@@ -59,7 +58,7 @@ const userinfo =mongoose.Schema({
 
 //creating a model
 
-const usermodl = mongoose.model('biodata',userinfo,); 
+const usermodl = mongoose.model('biodata',userinfo); 
 // we created a model which send and recive data as  userinfo datatype
 // this biodata is the name of storage area in our project where this info is going to store
 
@@ -67,7 +66,7 @@ const usermodl = mongoose.model('biodata',userinfo,);
 (async function createUSer(){
     let user ={
         name :'khandelwal',
-        email:'kakshat3@gmail.com',
+        email:'kakshat@gmail.com',
         password:'hello'
     };
     let data = await usermodl.create(user) ; // this line send the data in 'user' to database 
