@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 app.use(express.json());
-app.listen(3000,()=>{
+app.listen(3000, () => {
     console.log('server is running at port 3000');
 });
 
@@ -17,7 +17,7 @@ userRouter.route('/')
     .post(getdata, createUSer);
 
 userRouter.route('/data')
-    .get(sendalldata);
+    .post(sendalldata);
 
 
 function sendile(req, res) {
@@ -33,13 +33,14 @@ function getdata(req, res, next) {
     next();
 }
 
-async function sendalldata(req,res){
-    let allus = await usermodl.find({ name: 'akshat' }); // if we donot write {name:'akshat'} then it will find all but now it will find all those where name = akshat
+async function sendalldata(req, res) {
+    let dg = req.body.name ;
+    let allus = await usermodl.findOne({name:dg});
     res.json({
-        message:"data of all user",
-        data:allus
+        message: "data of all user",
+        data: allus
     })
-    console.log(allus);
+    console.log(dg);
 }
 
 
