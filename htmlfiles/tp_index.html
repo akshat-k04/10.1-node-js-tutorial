@@ -14,6 +14,7 @@
         email:<input type="email">
         password:<input type="password">
         <button>button</button>
+        <button >sendData</button>
     </form>
     
 
@@ -29,6 +30,11 @@
             let resp =await axios.post('/auth/signup',{emal,name, password});
             console.log('resp',resp);
 
+        })
+        let bt = document.querySelector('sendData');
+        bt.addEventListener('click',async function(e){
+            e.preventDefault();
+            let resp = await axios.get('/auth/signup/data');
         })
     </script>
 </body>
