@@ -9,5 +9,27 @@
 <body>
     <h1>akshat khandelwal</h1>
     <p>i am 19 year young boy who is currently writing this code</p>
+    <form>
+        First name:<input type="name">
+        email:<input type="email">
+        password:<input type="password">
+        <button>button</button>
+    </form>
+    
+
+    <!-- this is used to made req -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let btn = document.querySelector('button');
+        btn.addEventListener('click',async function(e){
+            e.preventDefault();
+            let email= document.querySelector("[type = 'email']").value;
+            let name = document.querySelector("[type = 'name']").value;
+            let password = document.querySelector("[type = 'password']").value;
+            let resp =await axios.post('/auth/signup',{email,name, password});
+            console.log('resp',resp);
+
+        })
+    </script>
 </body>
 </html>
