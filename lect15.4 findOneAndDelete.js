@@ -23,6 +23,8 @@ userRouter.route('/data')
 function sendile(req, res) {
     res.sendFile('./htmlfiles/tp_index.html', { root: __dirname });
 }
+
+
 function getdata(req, res, next) {
     console.log(req.body);
     let dataOb = req.body;
@@ -34,11 +36,10 @@ function getdata(req, res, next) {
 }
 
 async function sendalldata(req, res) {
-    let dataToBeUpdated= req.body ; // in req we do not need to send the data which we are not changing 
     let mail = req.body.email;
-    let allus = await usermodl.findOneAndUpdate({ email: mail }, dataToBeUpdated);  //this allus will have previous data 
+    let allus = await usermodl.findOneAndDelete({ email: mail });  //this allus will have previous data 
     res.json({
-        message: "data of all user",
+        message: "data is deleted , the deleted data is",
         data: allus
     })
     console.log(allus);
