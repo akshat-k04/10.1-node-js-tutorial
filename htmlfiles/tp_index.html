@@ -23,10 +23,10 @@
         let btn = document.querySelector('button');
         btn.addEventListener('click',async function(e){
             e.preventDefault();
-            let email= document.querySelector("[type = 'email']").value;
+            let emal= document.querySelector("[type = 'email']").value;
             let name = document.querySelector("[type = 'name']").value;
             let password = document.querySelector("[type = 'password']").value;
-            let resp =await axios.post('/auth/signup',{email,name, password});
+            let resp =await axios.post('/auth/signup',{emal,name, password});
             console.log('resp',resp);
 
         })
