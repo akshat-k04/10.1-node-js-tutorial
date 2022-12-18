@@ -28,3 +28,6 @@ server.listen(3000,'localhost',()=>{
 
 // ******server.listen*****
 //it has info about host, port,and call back function
+
+
+// to run file on terminal use "node lect1 server.js" or "nodemon lect1 server.js"

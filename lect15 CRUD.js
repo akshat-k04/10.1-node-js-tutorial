@@ -10,3 +10,5 @@ as we use usermodl.create(user) query (modelname.create()) for creating the data
 similarly we have various queries for RUD operations
 create(),deleteOne(),find(),findOne(),updateOne() ,findOneAndDelete(), findOneAndUpdate() etc
 */
+
+// documentation for this:-  https://mongoosejs.com/docs/queries.html
